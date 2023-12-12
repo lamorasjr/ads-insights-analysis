@@ -19,7 +19,9 @@ headers = {"Authorization": "Bearer " + access_token}
 
 params = {
       "time_range" : "{'since':'2023-10-01','until':'2023-10-31'}",
-      "level" : "ad"
+      "time_increment" : "1",
+      "level" : "ad",
+      "fields" : "account_id,campaign_id,adset_id,ad_id,date_start,date_stop,spend,account_currency,reach,impressions,frequency,inline_link_clicks,clicks,inline_post_engagement,actions"
   }
 
 try:
@@ -29,4 +31,4 @@ try:
 except:
   print('Falha na solicitação:', response.status_code)
 
-print(content)
+print(content["data"][0])
